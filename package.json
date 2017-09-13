@@ -1,0 +1,16 @@
+{
+  "name": "unoconv-server",
+  "version": "1.0.0",
+  "description": "Lightweight Nodejs unoconv server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "unoconv",
+    "nodejs",
+    "server"
+  ],
+  "author": "Enmaso, Inc.",
+  "license": "GPL-3.0"
+}
