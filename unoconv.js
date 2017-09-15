@@ -14,7 +14,8 @@ exec('unoconv -h', (err, stdout, stderr) => {
   curl -T myfile.docx http://localhost:8400/docx/pdf > myfile.pdf
   curl -X PUT --data-binary @myfile.docx http://localhost:8400/docx/pdf > myfile.pdf
 **/
-const port = process.env.npm_package_config_port || 9200;
+const port = process.env.PORT || 9200;
+
 const server = http.createServer((req, res) => {
   if(req.method == 'PUT') {
     let uri = req.url.split('/')
