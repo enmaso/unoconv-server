@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Lightweight Nodejs unoconv server",
   "main": "index.js",
+  "config": {
+    "port": 9200
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

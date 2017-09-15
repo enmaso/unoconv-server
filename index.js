@@ -2,8 +2,6 @@ const http = require('http');
 const exec = require('child_process').exec;
 const fs = require('fs');
 
-const config = require('./config');
-
 exec('unoconv -h', (err, stdout, stderr) => {
   if(err) {
     console.error(err)
@@ -16,6 +14,7 @@ exec('unoconv -h', (err, stdout, stderr) => {
   curl -T myfile.docx http://localhost:8400/docx/pdf > myfile.pdf
   curl -X PUT --data-binary @myfile.docx http://localhost:8400/docx/pdf > myfile.pdf
 **/
+const port = process.env.npm_package_config_port || 9200;
 const server = http.createServer((req, res) => {
   if(req.method == 'PUT') {
     let uri = req.url.split('/')
@@ -54,6 +53,6 @@ const server = http.createServer((req, res) => {
   }
 })
 
-server.listen(config.web.port, err => {
-  console.log(`unoconv server listening on port ${config.web.port}`)
+server.listen(port, err => {
+  console.log(`unoconv server listening on port ${port}`)
 })
