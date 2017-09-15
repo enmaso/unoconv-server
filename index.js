@@ -1,6 +1,8 @@
-const http = require('http')
-const exec = require('child_process').exec
-const fs = require('fs')
+const http = require('http');
+const exec = require('child_process').exec;
+const fs = require('fs');
+
+const config = require('./config');
 
 exec('unoconv -h', (err, stdout, stderr) => {
   if(err) {
@@ -9,15 +11,13 @@ exec('unoconv -h', (err, stdout, stderr) => {
   }
 })
 
-const port = process.argv[2] || 8400
-
 /**
   curl http://localhost:8400/docx/pdf --upload-file yourfile.docx > yourfile.pdf
   curl -T myfile.docx http://localhost:8400/docx/pdf > myfile.pdf
   curl -X PUT --data-binary @myfile.docx http://localhost:8400/docx/pdf > myfile.pdf
 **/
 const server = http.createServer((req, res) => {
-  if(req.method == 'POST' || req.method == 'PUT') {
+  if(req.method == 'PUT') {
     let uri = req.url.split('/')
     uri.shift()
     let convertFrom = uri.shift()
@@ -49,11 +49,11 @@ const server = http.createServer((req, res) => {
     })
   } else {
     res.statusCode = 400
-    res.write('Must use POST or PUT method')
+    res.write('Must use PUT method')
     res.end()
   }
 })
 
-server.listen(port, err => {
-  console.log(`unoconv server listening on port ${port}`)
+server.listen(config.web.port, err => {
+  console.log(`unoconv server listening on port ${config.web.port}`)
 })
