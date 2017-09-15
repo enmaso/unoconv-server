@@ -1,15 +1,23 @@
 {
   "name": "unoconv-server",
-  "version": "1.0.0",
+  "version": "1.1.8",
   "description": "Lightweight Nodejs unoconv server",
-  "main": "index.js",
+  "main": "unoconv.js",
   "config": {
     "port": 9200
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node unoconv.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enmaso/unoconv-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enmaso/unoconv-server/issues"
+  },
+  "homepage": "https://github.com/enmaso/unoconv-server#readme",
   "keywords": [
     "unoconv",
     "nodejs",
