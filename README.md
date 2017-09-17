@@ -4,8 +4,16 @@
 ## Requirements
 * LibreOffice or OpenOffice
 * unoconv
+
 ```
-sudo apt-get install libreoffice unoconv
+> sudo apt-get install libreoffice
+> sudo apt-get install libreoffice-writer2latex
+> sudo apt-get install unoconv
+```
+
+## Running unoconv in background
+```
+unoconv --listener &
 ```
 
 ## Configure
